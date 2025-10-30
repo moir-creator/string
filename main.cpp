@@ -19,6 +19,7 @@ int increase(char*& array, int& size) {
         arrayNew[i] = array[i];
     }
     arrayNew[i] = '\0';
+    size = sizeIncrease;
     delete[] array;
     array = arrayNew;
     return sizeIncrease;
@@ -52,7 +53,8 @@ int main() {
     //std::cout << length(arrSecond, sizeSecond);
     output(arrFirst, sizeFirst);
     output(arrSecond, sizeSecond);
-    std::cout << increase(arrFirst, sizeFirst);
+    std::cout << increase(arrFirst, sizeFirst) << std::endl;
+    std::cout << sizeFirst << std::endl;
     fullControl(arrFirst, sizeFirst);
 
     return 0;
