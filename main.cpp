@@ -25,7 +25,7 @@ int increase(char*& array, int& size) {
     return sizeIncrease;
 }
 
-void joinStrings(char*& strFirst, char*& strSecond, int& sizeFirst, int sizeSecond) {
+void joinString(char*& strFirst, char*& strSecond, int& sizeFirst, int sizeSecond) {
     //checking incoming data
     if (strSecond == nullptr) {
         std::cout << "Error! " << strSecond << " is NULL." << std::endl;
