@@ -1,3 +1,4 @@
+#include <array>
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -10,6 +11,19 @@ int length(char arr[], int size) {
     return count;
 }
 
+int increase(char*& array, int& size) {
+    int i = 0;
+    int sizeIncrease = size*2;
+    char* arrayNew = new char[sizeIncrease];
+    for ( ; array[i] != '\0' && i < size; i++) {
+        arrayNew[i] = array[i];
+    }
+    arrayNew[i] = '\0';
+    delete[] array;
+    array = arrayNew;
+    return sizeIncrease;
+}
+
 void output(char arr[], int size) {
     int i = 0;
     while (arr[i] != '\0' && i < size) {
@@ -17,6 +31,14 @@ void output(char arr[], int size) {
         i++;
     }
     std::cout << std::endl;
+}
+
+void fullControl(char arr[], int size) {
+    int i = 0;
+    for ( ; i < size; i++) {
+        std::cout << "array{" << i << "] = " << arr[i] << " ";
+    }
+    std::cout << "TOTAL: " << i << "cells";
 }
 int main() {
     int sizeFirst = 10;
@@ -30,6 +52,9 @@ int main() {
     //std::cout << length(arrSecond, sizeSecond);
     output(arrFirst, sizeFirst);
     output(arrSecond, sizeSecond);
+    std::cout << increase(arrFirst, sizeFirst);
+    fullControl(arrFirst, sizeFirst);
+
     return 0;
 
 }
